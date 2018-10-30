@@ -10,10 +10,12 @@ RUN apk update && apk add openjdk8 maven wget && \
 FROM tomcat:9-jre11-slim
 MAINTAINER Pablo Moreno <pmoreno@ebi.ac.uk>
 
-RUN mkdir /python-pks
+RUN mkdir -p /python-pks/PKSPredictor
 RUN mkdir /java-runner
 RUN mkdir /NRPSPredictor2
 
+ARG TRANSATOR_CORE_BRANCH
+ENV TRANSATOR_CORE_BRANCH=${TRANSATOR_CORE_BRANCH:-develop}
  
 COPY --from=0 /transator-java/PKSPredictorWeb/target/PKSPredictorWeb.war $CATALINA_HOME/webapps/trans-AT-PKS.war
 COPY --from=0 /transator-java/PKSPredictorREST/target/PKSPredictorREST.war $CATALINA_HOME/webapps/trans-AT-PKS#rest.war
@@ -22,6 +24,7 @@ COPY --from=0 /transator-java/PKSPredictorRunner/target/PKSPredictorRunner-2.0.j
 
 RUN apt-get update && apt-get install -y --no-install-recommends libc6-i386 hmmer emboss wget \
     python-biopython unzip && \
+    wget -q -O - https://github.com/pcm32/TransATor-core/archive/$TRANSATOR_CORE_BRANCH.tar.gz | tar xzf - --strip-components=1 -C /python-pks/PKSPredictor && \
     wget -O NRPSPredictor2.zip http://www.ebi.ac.uk/~pmoreno/NRPSpredictor2_20111113.zip && unzip -d /NRPSPredictor2/ NRPSPredictor2.zip && \
      rm NRPSPredictor2.zip && \
      apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
