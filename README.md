@@ -7,6 +7,7 @@
 - [FAQs](#faqs)
 - [Running locally](#running-locally)
 - [How to cite TransATor](#how-to-cite-transator)
+- [Source code availability](#source-code-availability)
 - [Contacts](#contacts)
  
 ## About TransATor
@@ -73,6 +74,7 @@ to produce the provided sequence annotated with relevant domains/sequence featur
 - Cheminformatics & web modules: Provides the web interface for TransATor that accepts query sequences, runs the sequence annotation
 module and then with its results, uses the Chemistry Development Kit (CDK) to create a first automatic solution for the polyketide expected. The source code for this
 is avaulable at https://github.com/pcm32/TransATor-java (see [Dockerfile](Dockerfile) for exact branches/tags to be used).
+- Alignments and motifs: The TransATor-cladification module at https://github.com/PielLab/transator-cladification includes the fasta files, alignments and motifs used by TransATor-core module to annotate the sequences with the relevant KS clades (and other relevant domains/motifs).
 
 # How to cite transATor:
 
