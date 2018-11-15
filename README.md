@@ -135,4 +135,4 @@ Eric J. N. Helfrich, Reiko Ueoka, Alon Dolev, Michael Rust, Roy A. Meoded, Agney
 
 # Contacts
 
-transATor was developed by [Pablo Moreno](http://www.ebi.ac.uk/about/people/pablo-moreno) and [Eric Helfrich](http://www.micro.biol.ethz.ch/people/person-detail.html?persid=193667), within the groups of [Christoph Steinbeck](http://www.ebi.ac.uk/about/people/christoph-steinbeck) at EBML-EBI and [Jörn Piel](http://www.micro.biol.ethz.ch/research/piel.html) at ETH Zurich, respectively.
+transATor was developed by [Pablo Moreno](http://www.ebi.ac.uk/about/people/pablo-moreno), Alon Dolev and [Eric Helfrich](http://www.micro.biol.ethz.ch/people/person-detail.html?persid=193667), within the groups of [Christoph Steinbeck](http://www.ebi.ac.uk/about/people/christoph-steinbeck) at EBML-EBI and [Jörn Piel](http://www.micro.biol.ethz.ch/research/piel.html) at ETH Zurich, respectively.
