@@ -16,36 +16,35 @@ Trans-acyltransferase polyketide synthases (trans-AT PKSs) are giant multi-domai
 
 Phylogenetic analyses of trans-AT PKSs revealed that KSs form clades that tightly correlate with the chemical structure of their substrates, here referred to as ketide clades. We chemically assigned and phylogenetically analyzed all 655 KS sequences from the 54 trans-AT PKS BGCs with characterized metabolites (status October 2016), (Fig. 1) resulting in a tree that contains 90 ketide clades. 
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig1.png]]
+![Figure 1](https://github.com/PielLab/transator-wiki/blob/master/fig1.png)
 _**Figure 1:** Phylogenetic separation of trans-AT PKS KS domains into ketide clades. Cladogram of 655 trans-AT PKS KS domains from characterized trans-AT PKS BGCs. cis-AT PKS KS domains from the erythromycin PKS were used as outgroup. DB: double bonds; KS0: non-elongating KS; 3PG starter: 3-phosphoglycerta starter. (For more information see Helfrich et al. 2018)_
 
 Using these ketide clade assignments, we developed TransATor (Fig. 2). With a PKS protein sequence in FASTA format as input, the software identifies every defined KS clade and all other common PKS domains by comparison to custom-built Midden Markov Models (HMMs). EMBOSS fuzzpro patterns are used to additionally predict the absolute hydroxyl stereochemistry introduced by KR domains. NRPSpredictor2 was implemented to account for NRPS-PKS hybrid annotations. Ultimately, a Java program generates the predicted polyketide structure based on the annotated core PKS proteins making use of the Chemistry Development Kit (CDK) (Fig. 2). First, the core structure is generated based on the ketide classification of all KS sequences. Then, amino acid side chains are added, as determined by NRPSpredictor2. Since the trans-AT PKS correlation rule is based on the correlation of a KS sequence and the modification introduced into the nascent polyketide by the module upstream of a KS, ketide moiety predictions are not possible in the absence of a downstream KS after the final module or in front of NRPS- or cis-AT PKS modules. In such cases, co-linearity between the architecture of the respective module and the structure of the incorporated moiety is assumed. TransATor can be remotely accessed through this web interface written in Java/JSP, which relies on BioJS components to display the KS clade, domain annotations, and stereochemical information. An interactive HTML5 page is used for the user-friendly visualization of the transATor output (Fig. 3).
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig2.png]]
+[!Figure 2](https://github.com/PielLab/transator-wiki/blob/master/fig2.png)
 
 _**Figure 2:** TransATor workflow. Outline of the TransATor pipeline for protein-based analysis of trans-AT PKS BGCs. Core PKS domains are annotated and KS substrate specificities predicted based on HMMs. EMBOSS fuzzpro patterns are used to predict the absolute configuration of hydroxylated carbon atoms. CDK is used to render the polyke¬tide structure based on the PKS annotation. AH: acyl-hydrolase, CR: crotonase, ER: enoyl-reductase, O-MT: O-methyl-transferase, AL: acyl-ligase, GNAT: Gcn5-related N-acetyltransferase, B: branching domain, MT: methyl-transferase, KR: ketoreductase, KS0 non-elongating KS, DH: dehydratase, PS: pyran synthase, A: adenylation domain, Cyc: cyclase, Ox: oxidase, small white circle: ACP. L: l-configured hydroxyl group, D: d-configured hydroxyl group. AMT: aminotransferase. C: condensation domain._
 
 
 Upload the protein sequence of your PKS of interest as a single FASTA file. Sequences in proper fasta format can either be directly pasted into the black box or upload your sequence from a file using the Browse option (Figure 3). You can convert your data into proper FASTA format using e.g. MultiFasta builder (batch conversion), ReadSeq at EBI or ReadSeq at NIH. If individual KS domains are used to for substrate predictions, use at least the region between the EDAGY and HGTGT motif.
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig3.png]]
+[!Figure 3](https://github.com/PielLab/transator-wiki/blob/master/fig3.png)
 _**Figure 3:** TransATor web interface. File upload._
 
 Figure 4 shows the output of the bacillaene trans-AT PKS as an example. On top the predicted polyketide core structure is displayed. For the predicted structure only the top HMM hit for the respective KS sequence is taken into consideration. The predicted chemical structure is shown as an image and can be exported in SMILE format. To estimate the level of confidence for each monomer assembled to the final predicted structure a grey scale is used for the structural representation of the predicted polyketide.
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig4.png]]
+[!Figure 4](https://github.com/PielLab/transator-wiki/blob/master/fig4.png)
 _**Figure 4:** Example TransATor result._
 
 Below (Figure 5), the PKS annotation is displayed in the Viewer panel. The uploaded sequence is displayed as a line with annotations based on HMM models (boxes) being displayed below the line and FUZZPRO pattern (diamonds) -based annotation indicating absolute hydroxyl stereochemistry predictions on top of the line representing the sequence. Each annotation contains information on the enzymatic domain, its substrate specificity, e-value and localization within the input sequence. Hovering across the annotation will display this information. For KS sequences, the top five hits are displayed. While the structure is generated from the top hit only, it might be worthwhile comparing the e-values of the other hits and, if necessary, also take other monomers for the corresponding position in the predicted molecule into consideration. 
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig5.png]]
+[!Figure 5](https://github.com/PielLab/transator-wiki/blob/master/fig5.png)
 _**Figure 5:** Example TransATor result. TransATor-based PKS/NRPS annotation output._
 
 The Raw (Figure 6) panel display only the top five hits of the KS substrate prediction. The predicted structure can be used to dereplication studies, prioritization, in-silico annotation of known polyketides to orphan biosynthetic gene clusters and guide the isolation and structure elucidation process. 
 
 
-[[https://github.com/PielLab/transator-wiki/blob/master/fig6.png]]
-
+[!Figure 6](https://github.com/PielLab/transator-wiki/blob/master/fig6.png)
 _**Figure 6:** Example TransATor result. KS annotation panel._
 
 # Placement of TransATor into the landscape of bioinformatic tools
